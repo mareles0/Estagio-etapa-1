@@ -26,9 +26,16 @@ const updateTask = async (req, res) => {
     return res.status(204).json();
 };
 
+const getById = async (req, res) => {
+    const { id } = req.params;
+    const task = await taskModel.getById(id);
+    return res.status(200).json(task);
+};
+
 module.exports = {
     getAll,
     createTask,
     deleteTask,
-    updateTask
+    updateTask,
+    getById
 };
